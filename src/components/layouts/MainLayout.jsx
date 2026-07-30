@@ -4,7 +4,7 @@ import Navbar from "../navbar/Navbar";
 
 function MainLayout() {
   return (
-    <div className="flex flex-col min-h-screen font-mono">
+    <div className="flex flex-col min-h-screen font-serif">
       <Navbar />
       <main className="flex-grow">
         <Outlet />

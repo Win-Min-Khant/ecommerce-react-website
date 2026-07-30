@@ -14,8 +14,6 @@ function Home() {
     });
   }, []);
 
-  console.log(products);
-
   if (loading)
     return <div className="text-center mt-10">Loading Products...</div>;
 

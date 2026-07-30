@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
+import { useState } from "react";
 
 const Auth = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const mode = searchParams.get("mode") || "signup";
-  const { signUp, login } = useContext(AuthContext);
+  const { signUp, login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const {
@@ -41,7 +41,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-2xl shadow-xl border border-gray-100">
+    <div className="max-w-md mx-auto mt-20 p-8 bg-white rounded-2xl shadow-xl border border-gray-100">
       <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
         {mode === "signup" ? "Create an Account" : "Login to your Account"}
       </h2>

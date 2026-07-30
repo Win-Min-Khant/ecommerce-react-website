@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
 
       <div className="flex flex-col gap-2">
         <Link
-          to={`/product/${product.id}`}
+          to={`/products/${product.id}`}
           className="w-full text-center py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
         >
           View Details

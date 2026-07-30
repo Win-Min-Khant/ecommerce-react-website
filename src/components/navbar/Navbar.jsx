@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { useAuth } from "../../context/useAuth";
 
 function Navbar() {
-  const { logout } = useContext(AuthContext);
+  const { user, logout } = useAuth();
   return (
     <nav className="bg-gray-900 text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,7 +27,7 @@ function Navbar() {
               Cart
             </Link>
 
-            {!localStorage.getItem("currentUserEmail") ? (
+            {!user ? (
               <>
                 <Link
                   to="/auth?mode=login"
@@ -45,9 +44,7 @@ function Navbar() {
               </>
             ) : (
               <>
-                <p className="text-orange-400">
-                  Hello, {localStorage.getItem("currentUserEmail")}
-                </p>
+                <p className="text-orange-400">Hello, {user.email}</p>
                 <Link
                   to="/auth?mode=login"
                   onClick={logout}
